@@ -9,11 +9,15 @@ import {
     CardTitle,
 } from "@/components/ui/card"
 import Link from "next/link"
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function CategoryPage() {
     const [category, setCategory] = useState<any>([]);
-
+    const router = useRouter();
+    if (!sessionStorage.getItem("users")) {
+        router.push('/login');
+    }
     useEffect(() => {
         const fetchData = async () => {
             const response = await fetch(process.env.NEXT_PUBLIC_API_URL + '/category');

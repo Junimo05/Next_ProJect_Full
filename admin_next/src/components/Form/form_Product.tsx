@@ -45,9 +45,7 @@ export default function ProductFormEdit(product: any) {
             }),
         description: z
             .string()
-            .max(160, {
-                message: "Description must not be longer than 30 characters",
-            }),
+        ,
         price:
             z.coerce.number({
                 required_error: "Price is required",

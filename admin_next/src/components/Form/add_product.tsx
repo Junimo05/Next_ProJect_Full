@@ -32,7 +32,6 @@ export default function AddProductDialog() {
             .any({
                 required_error: "Please select an category",
             })
-
         ,
         name: z
             .string({

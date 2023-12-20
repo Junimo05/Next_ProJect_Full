@@ -25,11 +25,13 @@ export default function ProductCategory() {
         else category = `/product/categorys/${category}`
         const fetchData = async () => {
             if (category != null) {
+                // console.log(category)
                 const response = await fetch(process.env.NEXT_PUBLIC_API_URL + category);
                 const data = await response.json();
-                if (category === '/product') setProducts(data);
-                else setProducts(data.products)
                 // console.log(data);
+                if (category === '/product') setProducts(data);
+                else setProducts(data)
+                // console.log(data.products);
             }
         };
         fetchData();

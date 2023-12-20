@@ -151,14 +151,34 @@ export class ProductService {
 
   async SearchProduct(name: string) {
     try {
-      const res = await this.prisma.product.findMany({
+      const products = await this.prisma.product.findMany({
         where: {
           name: {
             contains: name,
           },
         },
       });
-      if (res) {
+      if (products) {
+        const res = [];
+        products.forEach((product) => {
+          const imagePath = path.join(
+            __dirname,
+            `../../uploads/product/${product.id_Pro}`,
+          );
+
+          // Đọc danh sách các tệp ảnh trong thư mục
+          const imageFiles = fs.readdirSync(imagePath);
+
+          // Xây dựng đường dẫn đầy đủ đến từng ảnh và trả về chúng dưới dạng URL
+          const imageUrls = imageFiles.map(
+            (filename) =>
+              `http://localhost:8080/product/getiamge/${product.id_Pro}/${filename}`,
+          );
+          res.push({
+            ...product,
+            imageFiles: imageUrls,
+          });
+        });
         return res;
       }
     } catch (error) {

@@ -55,7 +55,7 @@ export function DataTableToolbar<TData>({
                     </Button>
                 )}
                 <DataTableViewOptions table={table} />
-                {isSelected && (
+                {/* {isSelected && (
                     <DropdownMenu>
                         <DropdownMenuTrigger>
                             <Button
@@ -97,7 +97,7 @@ export function DataTableToolbar<TData>({
                         </DropdownMenuContent>
                     </DropdownMenu>
 
-                )}
+                )} */}
             </div>
         </div>
     )
