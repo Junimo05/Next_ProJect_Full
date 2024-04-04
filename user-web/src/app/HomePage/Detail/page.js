@@ -31,7 +31,7 @@ export default function Page() {
             alert("Bạn đã đặt hàng thành công!");
           })
           .catch(function (error) {
-            alert("Đã có lỗi xảy ra, vui lòng thử lại sau!");
+            alert("Vui lòng đăng nhâp trước khi đặt mua!");
           });
     }
     return (

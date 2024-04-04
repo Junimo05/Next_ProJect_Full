@@ -35,6 +35,7 @@ export class AuthSevice {
     //if login success
     delete user.password;
     const tokenAfterSign = await this.signToken(
+      user.id_User,
       user.username,
       user.email,
       user.role,
@@ -44,16 +45,19 @@ export class AuthSevice {
         name: user.username,
         role: user.role,
         token: tokenAfterSign,
+        id: user.id_User,
       };
     }
   }
 
   private async signToken(
+    id: number,
     username: string,
     email: string,
     role?: string | 'customer',
   ): Promise<string> {
     const payload: object = {
+      id: id,
       username: username,
       email: email,
       role: role,

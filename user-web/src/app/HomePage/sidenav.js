@@ -18,7 +18,7 @@ export default function SideNav() {
     const handlerNav = (name) => {
         localStorage.setItem("nav", name);
         console.log(localStorage.getItem("nav"));
-        window.location.reload();
+        window.location.replace("/HomePage/");
     }
     return (
         <>

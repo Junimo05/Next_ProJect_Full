@@ -17,13 +17,16 @@ export default function Page() {
         axios.post('http://localhost:8080/auth/register', user)
         .then(function (response) {
             console.log(response);
-            localStorage.setItem("user", response.data.id);
+            localStorage.setItem("user", response.data.user.id_User);
             window.location.replace("/HomePage/");
+            alert("Đăng ký thành công!")
         })
         .catch(function (error) {
           alert("Đã có lỗi xảy ra, vui lòng thử lại sau!");
         });
+
     }
+    
     return (
         <>
         <div className="flex flex-row h-screen py-10">
