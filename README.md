@@ -1,2 +1,4 @@
 # Next_ProJect_Full
-1
+Admin Front-End: Nguyen Anh Tuan
+Back-End: Vu Van Hieu
+User Front-End: Le Duc Long
